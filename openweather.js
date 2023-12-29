@@ -3,7 +3,7 @@ import http from 'http'
 import urlData from 'url'
 
 const port = 4001;
-
+// can use thunder client for better experience
 
 const tempK = (temp) =>{
     return (temp-273.15).toFixed(2);
@@ -14,7 +14,7 @@ const myServer = http.createServer((req,res)=>{
     if(req.url.startsWith(`/weather/`)){
 
         // http://loccalhost:4001/weather/?city=nameOfCity
-        
+
         const urlParse = urlData.parse(req.url,true).query;
         const city = urlParse.city;
         const url  = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=fbfce8ba1bedd6e47a51541f12cee44b`
@@ -22,7 +22,9 @@ const myServer = http.createServer((req,res)=>{
         fetch(url)
         .then(response=>response.json())
         .then(data=>{
+
             console.log(data);
+
             const weatherObj = {
                 "City" : data.name,
                 "Current Temperature" : tempK(data.main.temp)+" °C",
