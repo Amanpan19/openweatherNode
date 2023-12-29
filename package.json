@@ -1,0 +1,18 @@
+{
+  "type": "module",
+  "name": "openweathernode",
+  "version": "1.0.0",
+  "description": "Open weather using node.js",
+  "main": "openweather.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Aman Pandey",
+  "license": "ISC",
+  "dependencies": {
+    "http": "^0.0.1-security",
+    "node-fetch": "^3.3.2",
+    "readline-sync": "^1.4.10"
+  }
+}
